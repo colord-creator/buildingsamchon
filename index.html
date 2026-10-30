@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache">
 <meta name="description" content="서초/강남 중소형 건물 보수·관리 전문기업 빌딩삼촌. 누수 · 배관 · 방수 · 철거 · 개보수까지, 언제든 무엇이든 해결하는 건물 해결사. 무료상담 1533-4619">
+<meta property="og:title" content="빌딩삼촌 | 서초/강남 중소형 건물 보수·관리">
+<meta property="og:description" content="언제든, 무엇이든 해결하는 건물 해결사. 무료상담 1533-4619">
 <meta name="theme-color" content="#04002E">
 <title>빌딩삼촌</title>
 
@@ -542,6 +545,17 @@ h2{letter-spacing:-.005em!important}
   .hero-img{-webkit-mask-image:none;mask-image:none}
   .hero-img::after{background:linear-gradient(0deg,var(--night) 0%,rgba(4,0,46,.7) 40%,rgba(4,0,46,.55) 100%)!important}
 }
+
+/* mobile: solid header + contained hero image band */
+@media (max-width:760px){
+  .hd,.hd.solid{background:rgba(4,0,46,.97)!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-d)}
+  .nav{background:rgba(4,0,46,.97)!important}
+}
+@media (max-width:960px){
+  .hero-img{inset:0!important;width:100%!important;opacity:1!important;transform:none!important}
+  .hero-img::before{top:120px;bottom:auto;height:min(120vw,560px);background-size:cover;background-position:center 30%;opacity:.55;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 70%,transparent 100%)}
+  .hero-img::after{background:linear-gradient(180deg,rgba(4,0,46,.35) 0%,rgba(4,0,46,.55) 100%)!important}
+}
 </style>
 </head>
 <body>
@@ -700,7 +714,7 @@ h2{letter-spacing:-.005em!important}
   var mc=document.getElementById('mcall'),ct=document.getElementById('contact');
   function onScroll(){var y=window.scrollY||0;hd.classList.toggle('solid',y>30);top.classList.toggle('show',y>600);
     if(mc){var r=ct.getBoundingClientRect();mc.classList.toggle('show',y>300);}
-    if(!reduce&&img&&y<1200) img.style.transform='translateY('+(y*0.25)+'px) scale(1.04)';}
+    if(!reduce&&img&&y<1200&&innerWidth>960) img.style.transform='translateY('+(y*0.25)+'px) scale(1.04)';}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   top.addEventListener('click',function(){scrollTo({top:0,behavior:reduce?'auto':'smooth'})});
 
